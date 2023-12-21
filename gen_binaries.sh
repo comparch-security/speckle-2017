@@ -130,7 +130,7 @@ if [ "$compileFlag" = true ]; then
       inputs=$(find "$host_bmk_dir"/* -maxdepth 0 ! -executable -o -type d)
       for input in ${inputs[@]}; do
          echo $input
-         cp -rf $input -T $output_dir/$(basename "$input")
+         cp -rf $input $output_dir/$(basename "$input")
       done
 
       if [[ $b == "523.xalancbmk_r" ]]; then
