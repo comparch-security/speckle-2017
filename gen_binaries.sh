@@ -135,6 +135,8 @@ if [ "$compileFlag" = true ]; then
 
       if [[ $b == "523.xalancbmk_r" ]]; then
          target_bin=`find $bmark_base_dir/exe/ -name "cpuxalan*${CONFIG}-64"`
+      elif [[ $b == "507.cactuBSSN_r" ]]; then
+         target_bin=`find $bmark_base_dir/exe/ -name "*cactusBSSN_r*${CONFIG}-64"`
       else
          target_bin=`find $bmark_base_dir/exe/ -name "*${b_short_name}*${CONFIG}-64"`
       fi
