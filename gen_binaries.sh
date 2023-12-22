@@ -127,11 +127,9 @@ if [ "$compileFlag" = true ]; then
       fi
 
       # Copy the inputs from the host build
-      inputs=$(find "$host_bmk_dir"/* -maxdepth 0 ! -executable -o -type d)
-      for input in ${inputs[@]}; do
-         echo $input
-         cp -rf $input $output_dir/$(basename "$input")
-      done
+      rm -fr $output_dir
+      cp -rp $host_bmk_dir $output_dir
+      rm $output_dir/*.host-m64
 
       if [[ $b == "523.xalancbmk_r" ]]; then
          target_bin=`find $bmark_base_dir/exe/ -name "cpuxalan*${CONFIG}-64"`
