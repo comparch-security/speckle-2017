@@ -37,3 +37,16 @@ ls -l build/overlay/fprate
 
 ~~~
 
+Some extra fixes need to be done manually.
+
+* Input 1 of 525.x264\_r depends on the log output of input 0. Since we normally do not run the whole benchmark, we need to copy a prepared log to the running directory for running input 1:
+
+~~~
+cp -r 525.x264_r build/overlay/intrate/
+~~~
+
+* 521.wrf\_r has a different running procedure. It lets wrf run to generate a putput file, and then using diffwrf to compare this output file with a prepared output for correctness. The script in Speckle seems to believe the following comparison as the main benchmark and generate a wrong running script. To fix this:
+~~~
+cp -r 521.wrf_r build/overlay/fprate/
+~~~
+
